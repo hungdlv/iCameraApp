@@ -36,12 +36,28 @@ class AddNewViewController: UIViewController {
     
     
     @IBAction func selectionPhoto(_ sender: Any) {
-        choosePhoto()
+        let alert:UIAlertController = UIAlertController(title: "Chọn hình", message: nil, preferredStyle: .actionSheet)
+        
+        let library:UIAlertAction = UIAlertAction(title: "Choose from library", style: .default) { (action) in
+            self.choosePhoto(sourceType: .photoLibrary)
+        }
+        
+        let camera:UIAlertAction = UIAlertAction(title: "Take photo", style: .default) { (action) in
+            self.choosePhoto(sourceType: .camera)
+        }
+        
+        let cancel:UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(library)
+        alert.addAction(camera)
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
     }
     
-    func choosePhoto() {
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-            pickerPhoto.sourceType = .photoLibrary
+    func choosePhoto(sourceType:UIImagePickerControllerSourceType) {
+        if UIImagePickerController.isSourceTypeAvailable(sourceType){
+            pickerPhoto.allowsEditing = true
+            pickerPhoto.sourceType = sourceType
             self.present(pickerPhoto, animated: true, completion: nil)
         }
     }
