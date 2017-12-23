@@ -78,7 +78,7 @@
         <!--Add New-->
         <scene sceneID="FQM-0i-01h">
             <objects>
-                <viewController id="tQO-gf-FpP" customClass="AddNewViewController" customModule="iCameraApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addNewVC" id="tQO-gf-FpP" customClass="AddNewViewController" customModule="iCameraApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cRO-do-P9b"/>
                         <viewControllerLayoutGuide type="bottom" id="dXw-dQ-QKW"/>
@@ -87,7 +87,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QHr-SK-x9h">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QHr-SK-x9h">
                                 <rect key="frame" x="40" y="74" width="240" height="167"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
@@ -115,30 +115,45 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HyX-HI-VMU">
-                                <rect key="frame" x="145" y="405" width="30" height="30"/>
+                                <rect key="frame" x="115" y="405" width="30" height="30"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="addNewAction:" destination="tQO-gf-FpP" eventType="touchUpInside" id="mil-dq-wWx"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JvC-CG-5RG">
+                                <rect key="frame" x="126" y="249" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fw0-yK-eAC">
+                                <rect key="frame" x="166" y="405" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelAction:" destination="tQO-gf-FpP" eventType="touchUpInside" id="a99-oo-6r0"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HyX-HI-VMU" firstAttribute="top" secondItem="KR1-bn-Hid" secondAttribute="bottom" constant="39" id="77g-S2-kEj"/>
-                            <constraint firstItem="HyX-HI-VMU" firstAttribute="centerX" secondItem="jyp-I9-Awu" secondAttribute="centerX" id="7h7-tz-C3N"/>
+                            <constraint firstItem="HyX-HI-VMU" firstAttribute="centerX" secondItem="jyp-I9-Awu" secondAttribute="centerX" constant="-30" id="7h7-tz-C3N"/>
                             <constraint firstItem="zM5-QB-RIK" firstAttribute="top" secondItem="QHr-SK-x9h" secondAttribute="bottom" constant="50" id="9cY-DG-RxM"/>
+                            <constraint firstItem="fw0-yK-eAC" firstAttribute="centerX" secondItem="jyp-I9-Awu" secondAttribute="centerX" constant="30" id="BSt-QW-7Zh"/>
                             <constraint firstItem="KR1-bn-Hid" firstAttribute="width" secondItem="zM5-QB-RIK" secondAttribute="width" id="IUH-WI-qYH"/>
                             <constraint firstItem="QHr-SK-x9h" firstAttribute="top" secondItem="cRO-do-P9b" secondAttribute="bottom" constant="10" id="NeH-GN-8ZS"/>
                             <constraint firstItem="QHr-SK-x9h" firstAttribute="centerX" secondItem="jyp-I9-Awu" secondAttribute="centerX" id="Q8p-ar-W1J"/>
+                            <constraint firstItem="fw0-yK-eAC" firstAttribute="centerY" secondItem="HyX-HI-VMU" secondAttribute="centerY" id="Saa-p7-UfQ"/>
                             <constraint firstItem="KR1-bn-Hid" firstAttribute="top" secondItem="zM5-QB-RIK" secondAttribute="bottom" constant="15" id="TdP-Wx-hjt"/>
                             <constraint firstItem="zM5-QB-RIK" firstAttribute="centerX" secondItem="jyp-I9-Awu" secondAttribute="centerX" id="Z0g-gQ-aON"/>
                             <constraint firstItem="KR1-bn-Hid" firstAttribute="centerX" secondItem="zM5-QB-RIK" secondAttribute="centerX" id="ZSl-3v-QeS"/>
+                            <constraint firstItem="fw0-yK-eAC" firstAttribute="top" secondItem="HyX-HI-VMU" secondAttribute="top" id="cTJ-Yx-D9i"/>
                             <constraint firstItem="KR1-bn-Hid" firstAttribute="height" secondItem="zM5-QB-RIK" secondAttribute="height" id="v1R-dF-lwL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add New" id="kkC-5W-ekW"/>
                     <connections>
                         <outlet property="imageView" destination="QHr-SK-x9h" id="y0j-EV-wxl"/>
+                        <outlet property="isAllowSavePhoto" destination="JvC-CG-5RG" id="H9G-O3-esU"/>
                         <outlet property="productName" destination="zM5-QB-RIK" id="Qxe-wL-Kmo"/>
                         <outlet property="productPrice" destination="KR1-bn-Hid" id="ags-es-k4d"/>
                     </connections>

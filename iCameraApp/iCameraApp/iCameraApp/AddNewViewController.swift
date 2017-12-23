@@ -8,8 +8,14 @@
 
 import UIKit
 
-class AddNewViewController: UIViewController {
 
+
+class AddNewViewController: UIViewController {
+    
+    weak var delegate:AddNewViewControllerDelegate?
+
+    @IBOutlet weak var isAllowSavePhoto: UISwitch!
+    
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var productName: UITextField!
@@ -18,10 +24,28 @@ class AddNewViewController: UIViewController {
     
     let pickerPhoto:UIImagePickerController =  UIImagePickerController()
     
+    var product:Product?
+    var indexPath:IndexPath?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let product = self.product
+        {
+            productName.text = product.name
+            productPrice.text = product.price
+            imageView.image = product.image
+        }
+    }
+    
+    @IBAction func cancelAction(_ sender: Any) {
+        let _ = self.navigationController?.popViewController(animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +55,24 @@ class AddNewViewController: UIViewController {
     
 
     @IBAction func addNewAction(_ sender: Any) {
+        var product = Product(name: "", price: "", image: #imageLiteral(resourceName: "Iphone5"))
+        product.name = productName.text!
+        product.price = productPrice.text!
+        
+        if let productImg = imageView.image {
+            product.image = productImg
+            
+            if let _ = self.product {
+                self.product = product
+                self.delegate?.userDidUpdateProduct(vc: self, product: self.product!, at: self.indexPath!)
+            }else{
+                self.delegate?.userDidCreateProduct(vc: self, product: product)
+            }
+            
+            self.navigationController?.popToRootViewController(animated: true)
+        }else{
+            
+        }
         
     }
     
@@ -56,8 +98,17 @@ class AddNewViewController: UIViewController {
     
     func choosePhoto(sourceType:UIImagePickerControllerSourceType) {
         if UIImagePickerController.isSourceTypeAvailable(sourceType){
+            
+            //allow editing image
             pickerPhoto.allowsEditing = true
+            
+            //use delegate because this controller extention
+            pickerPhoto.delegate = self
+            
+            //dymanic sourceType from a parameter input
             pickerPhoto.sourceType = sourceType
+            
+            //show photoLibrary
             self.present(pickerPhoto, animated: true, completion: nil)
         }
     }
@@ -73,3 +124,25 @@ class AddNewViewController: UIViewController {
     */
 
 }
+
+
+extension AddNewViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            //catch this image into imageView
+            imageView.image = image
+            
+            //save the image into photoAlbum local
+            if picker.sourceType == .camera && isAllowSavePhoto.isOn {
+                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+            }
+            
+            //hide currView
+            dismiss(animated: true, completion: nil)
+        }
+    }
+}
+
+
+
+

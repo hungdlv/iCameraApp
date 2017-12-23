@@ -14,6 +14,7 @@
 		FA371B761FEE5D3400CF1012 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA371B741FEE5D3400CF1012 /* LaunchScreen.storyboard */; };
 		FA371B7F1FEE8AEE00CF1012 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA371B7E1FEE8AEE00CF1012 /* Product.swift */; };
 		FA371B821FEE940300CF1012 /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA371B811FEE940300CF1012 /* AddNewViewController.swift */; };
+		FA371B851FEEAAA300CF1012 /* AddNewViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA371B841FEEAAA300CF1012 /* AddNewViewControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		FA371B771FEE5D3400CF1012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA371B7E1FEE8AEE00CF1012 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		FA371B811FEE940300CF1012 /* AddNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
+		FA371B841FEEAAA300CF1012 /* AddNewViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewViewControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +60,11 @@
 		FA371B6A1FEE5D3400CF1012 /* iCameraApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA371B861FEEAAD100CF1012 /* Storyboard */,
+				FA371B831FEEAA7000CF1012 /* Delegate */,
 				FA371B801FEE93DE00CF1012 /* Controller */,
 				FA371B7D1FEE8AD100CF1012 /* Model */,
-				FA371B6B1FEE5D3400CF1012 /* AppDelegate.swift */,
-				FA371B6D1FEE5D3400CF1012 /* ViewController.swift */,
-				FA371B6F1FEE5D3400CF1012 /* Main.storyboard */,
 				FA371B721FEE5D3400CF1012 /* Assets.xcassets */,
-				FA371B741FEE5D3400CF1012 /* LaunchScreen.storyboard */,
 				FA371B771FEE5D3400CF1012 /* Info.plist */,
 			);
 			path = iCameraApp;
@@ -82,8 +82,27 @@
 			isa = PBXGroup;
 			children = (
 				FA371B811FEE940300CF1012 /* AddNewViewController.swift */,
+				FA371B6D1FEE5D3400CF1012 /* ViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		FA371B831FEEAA7000CF1012 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				FA371B6B1FEE5D3400CF1012 /* AppDelegate.swift */,
+				FA371B841FEEAAA300CF1012 /* AddNewViewControllerDelegate.swift */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		FA371B861FEEAAD100CF1012 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FA371B6F1FEE5D3400CF1012 /* Main.storyboard */,
+				FA371B741FEE5D3400CF1012 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +181,7 @@
 				FA371B6C1FEE5D3400CF1012 /* AppDelegate.swift in Sources */,
 				FA371B7F1FEE8AEE00CF1012 /* Product.swift in Sources */,
 				FA371B821FEE940300CF1012 /* AddNewViewController.swift in Sources */,
+				FA371B851FEEAAA300CF1012 /* AddNewViewControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

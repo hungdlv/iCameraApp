@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         tableView.dataSource = self
+        tableView.delegate = self
         
         productArray = [
             Product(name: "Iphone 5", price: "5 trieu", image: #imageLiteral(resourceName: "Iphone5")),
@@ -35,7 +36,27 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //catch destination as addNewViewController
+        if let addNewVC = segue.destination as? AddNewViewController {
+            addNewVC.delegate = self
+        }
+        
+    }
 
+}
+
+extension ViewController : UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let product = productArray[indexPath.row]
+        
+        let addNewVC = self.storyboard?.instantiateViewController(withIdentifier: "addNewVC") as! AddNewViewController
+        
+        addNewVC.delegate = self
+        addNewVC.product = product
+        addNewVC.indexPath = indexPath
+        self.navigationController?.pushViewController(addNewVC, animated: true)
+    }
 }
 
 extension ViewController:UITableViewDataSource{
@@ -55,7 +76,22 @@ extension ViewController:UITableViewDataSource{
     }
 }
 
-
+extension ViewController : AddNewViewControllerDelegate{
+    func userDidCreateProduct(vc: AddNewViewController, product: Product) {
+        productArray.append(product)
+        tableView.reloadData()
+    }
+    
+    func userDidUpdateProduct(vc: AddNewViewController, product: Product, at: IndexPath) {
+        productArray[at.row] = product
+        tableView.reloadData()
+    }
+    
+    
+    func userDidCancel(vc: AddNewViewController) {
+        //TODO
+    }
+}
 
 
 
