@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  demo
+//  iCameraApp
 //
-//  Created by Macbook on 7/22/17.
+//  Created by Macbook on 12/23/17.
 //  Copyright © 2017 Macbook. All rights reserved.
 //
 

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA5C31F81F23A201000CB0C7"
-               BuildableName = "demo.app"
-               BlueprintName = "demo"
-               ReferencedContainer = "container:demo.xcodeproj">
+               BlueprintIdentifier = "FA371B671FEE5D3400CF1012"
+               BuildableName = "iCameraApp.app"
+               BlueprintName = "iCameraApp"
+               ReferencedContainer = "container:iCameraApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,34 +28,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA5C320C1F23A201000CB0C7"
-               BuildableName = "demoTests.xctest"
-               BlueprintName = "demoTests"
-               ReferencedContainer = "container:demo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA5C32171F23A201000CB0C7"
-               BuildableName = "demoUITests.xctest"
-               BlueprintName = "demoUITests"
-               ReferencedContainer = "container:demo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA5C31F81F23A201000CB0C7"
-            BuildableName = "demo.app"
-            BlueprintName = "demo"
-            ReferencedContainer = "container:demo.xcodeproj">
+            BlueprintIdentifier = "FA371B671FEE5D3400CF1012"
+            BuildableName = "iCameraApp.app"
+            BlueprintName = "iCameraApp"
+            ReferencedContainer = "container:iCameraApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA5C31F81F23A201000CB0C7"
-            BuildableName = "demo.app"
-            BlueprintName = "demo"
-            ReferencedContainer = "container:demo.xcodeproj">
+            BlueprintIdentifier = "FA371B671FEE5D3400CF1012"
+            BuildableName = "iCameraApp.app"
+            BlueprintName = "iCameraApp"
+            ReferencedContainer = "container:iCameraApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA5C31F81F23A201000CB0C7"
-            BuildableName = "demo.app"
-            BlueprintName = "demo"
-            ReferencedContainer = "container:demo.xcodeproj">
+            BlueprintIdentifier = "FA371B671FEE5D3400CF1012"
+            BuildableName = "iCameraApp.app"
+            BlueprintName = "iCameraApp"
+            ReferencedContainer = "container:iCameraApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
